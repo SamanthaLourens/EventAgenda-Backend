@@ -1,5 +1,6 @@
 package app.servicelayer;
 
+import java.time.LocalDate;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class EvenementService implements IEvenementService {
 	}
 
 	@Override
-	public List<EvenementModel> findByDatum(String datum) {
+	public List<EvenementModel> findByDatum(LocalDate datum) {
 		return this.iEvenementDao.findByDatum(datum);
 	}
 	
