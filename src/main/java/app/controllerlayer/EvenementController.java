@@ -1,5 +1,6 @@
 package app.controllerlayer;
 
+import java.time.LocalDate;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,7 @@ public class EvenementController {
 	}
 	
 	@GetMapping("/api/evenement/datum/{datum}")
-	public List<EvenementModel> findByDatum(@PathVariable String datum){
+	public List<EvenementModel> findByDatum(@PathVariable LocalDate datum){
 		return this.iEvenementService.findByDatum(datum);
 	}
 	

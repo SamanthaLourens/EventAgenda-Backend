@@ -1,5 +1,7 @@
 package app.models;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +18,7 @@ public class EvenementModel {
 	@Column
 	private String plaats;
 	
-	private String datum;
+	private LocalDate datum;
 	
 	private String naam;
 
@@ -36,11 +38,11 @@ public class EvenementModel {
 		this.plaats = plaats;
 	}
 
-	public String getDatum() {
+	public LocalDate getDatum() {
 		return datum;
 	}
 
-	public void setDatum(String datum) {
+	public void setDatum(LocalDate datum) {
 		this.datum = datum;
 	}
 	

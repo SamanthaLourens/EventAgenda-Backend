@@ -1,5 +1,6 @@
 package app.servicelayer;
 
+import java.time.LocalDate;
 import java.util.*;
 
 import app.models.EvenementModel;
@@ -12,7 +13,7 @@ public interface IEvenementService {
 	
 	List<EvenementModel> findByPlaats(String plaats);
 	
-	List<EvenementModel> findByDatum(String datum);
+	List<EvenementModel> findByDatum(LocalDate datum);
 	
 	List<EvenementModel> findByNaam(String naam);
 	

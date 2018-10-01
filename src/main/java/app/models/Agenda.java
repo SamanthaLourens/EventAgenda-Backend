@@ -1,6 +1,7 @@
 package app.models;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Agenda {
@@ -16,10 +18,20 @@ public class Agenda {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private LocalDate datum;
-	
 	@ManyToMany
 	private List<EvenementModel> evenement;
+	
+	@OneToOne
+	private PersonModel user;
+	
+	
+	public PersonModel getUser() {
+		return user;
+	}
+
+	public void setUser(PersonModel user) {
+		this.user = user;
+	}
 
 	public Long getId() {
 		return id;
@@ -29,20 +41,15 @@ public class Agenda {
 		this.id = id;
 	}
 
-	public LocalDate getDatum() {
-		return datum;
-	}
 
-	public void setDatum(LocalDate datum) {
-		this.datum = datum;
-	}
 
 	public List<EvenementModel> getEvenement() {
 		return evenement;
 	}
 
-	public void setEvenement(List<EvenementModel> evenement) {
+	public void setEvenement(ArrayList<EvenementModel> evenement) {
 		this.evenement = evenement;
 	}
+	
 
 }
