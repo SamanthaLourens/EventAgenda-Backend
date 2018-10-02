@@ -37,7 +37,6 @@ public class SlaEvenementOpService {
 			this.iAgendaDao.save(a);   //Slaat de nieuwe lijst met evenementen op
 			return a;
 		}
-		 
 		return null;
 		
 	}
