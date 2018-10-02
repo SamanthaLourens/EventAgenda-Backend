@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import app.dto.PersonDto;
 import app.models.Agenda;
 import app.models.PersonModel;
 import app.servicelayer.VindEenMattieService;
@@ -22,8 +23,8 @@ public class VindEenMattieController {
 	private VindEenMattieService vindEenMattieService;
 		
 	@GetMapping("/api/VindEenMattie/{eventId}")
-	public List<PersonModel> vindIemand(@PathVariable Long eventId) {
-		return this.vindEenMattieService.zoekPersonen(eventId);
+	public List<PersonDto> vindIemand(@PathVariable Long eventId) {
+		return this.vindEenMattieService.zoekPersonDto(eventId);
 	}
 	
 }

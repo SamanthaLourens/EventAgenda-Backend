@@ -14,12 +14,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import app.models.EvenementModel;
 import app.servicelayer.IEvenementService;
+import app.servicelayer.NaamPlaatsDatumService;
 
 @RestController
 public class EvenementController {
 	
 	@Autowired
 	private IEvenementService iEvenementService;
+	
+	@Autowired NaamPlaatsDatumService naamPlaatsDatumService;
 	
 	@GetMapping("/api/evenement/all")
 	public List<EvenementModel> findAll(){
@@ -45,6 +48,27 @@ public class EvenementController {
 	public List<EvenementModel> findByDatum(@PathVariable LocalDate datum){
 		return this.iEvenementService.findByDatum(datum);
 	}
+	
+	
+	@GetMapping("/api/evenement/plaatsofnaam/{plaatsofnaam}")
+	public List<EvenementModel> ZoekNaarPlaatsOfNaam(@PathVariable String naamPlaats){
+		return this.naamPlaatsDatumService.vindOpPlaatsNaam(naamPlaats);
+	}
+	
+	@GetMapping("/api/evenement/plaatsofnaamendatum/{plaatsofnaam}/{datum}")
+	public List<EvenementModel> ZoekNaarPlaatsNaamEnDatum(@PathVariable String naamPlaats){
+		return this.naamPlaatsDatumService.vindOpPlaatsNaam(naamPlaats);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 
 	@PostMapping("/api/evenement/")

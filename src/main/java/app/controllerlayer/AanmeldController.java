@@ -20,8 +20,16 @@ public class AanmeldController {
 		private AanmeldService aanmeldService;
 		
 		@PostMapping("/api/aanmelden/{naam}/{wachtwoord}")
-		public PersonModel MeldUserAan(@PathVariable String naam, @PathVariable String wachtwoord) {
+		public boolean MeldUserAan(@PathVariable String naam, @PathVariable String wachtwoord) {
 			return this.aanmeldService.maakAccountAan(naam, wachtwoord);
+		}
+		
+		
+		// De user id wordt gereturnd indien er bij het inloggen juiste naam en wachtwoord zijn ingevoerd
+		// indien deze niet correct zijn wordt er een 0 gereturnt
+		@PostMapping("/api/inloggen/{naam}/{wachtwoord}")
+		public long logUserIn(@PathVariable String naam, @PathVariable String wachtwoord) {
+			return this.aanmeldService.inloggen(naam, wachtwoord);
 		}
 	
 	
