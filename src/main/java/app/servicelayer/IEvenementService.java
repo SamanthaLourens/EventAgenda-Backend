@@ -23,5 +23,7 @@ public interface IEvenementService {
 	
 	void delete(EvenementModel evenement);
 	
+	public List<EvenementModel> getAllEvenementen (String zoekopdracht);
+	
 	 
 }
