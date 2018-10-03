@@ -26,7 +26,7 @@ public class SlaEvenementOpService {
 	
 
 	
-	public Agenda EvenementOpslaan(Long evenementId, Long agendaId) {
+	public boolean EvenementOpslaan(Long evenementId, Long agendaId) {
 		Optional<EvenementModel> event = this.iEvenementDao.findById(evenementId);
 		Optional<Agenda> agenda = this.iAgendaDao.findById(agendaId);
 		
@@ -35,10 +35,10 @@ public class SlaEvenementOpService {
 			EvenementModel evenement = event.get();
 			a.getEvenement().add(evenement);  //returnt een ArrayList en voegt er dan een evenement aan toe
 			this.iAgendaDao.save(a);   //Slaat de nieuwe lijst met evenementen op
-			return a;
-		}
-		return null;
-		
+			return true;
+		}else return false;
 	}
+	
+	 
 
 }

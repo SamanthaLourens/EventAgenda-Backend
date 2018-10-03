@@ -17,6 +17,7 @@ public class NaamPlaatsDatumService {
 	
 	private IEvenementDao iEvenementDao;
 	
+	/*
 	public List<EvenementModel> vindOpPlaatsNaam(String naamPlaats) {
 		ArrayList<EvenementModel> evenementen = new ArrayList();  		
 		for (EvenementModel event: this.iEvenementDao.findByNaam(naamPlaats) ) {
@@ -36,6 +37,6 @@ public class NaamPlaatsDatumService {
 		}
 		return events;
 	}
-	
+	*/
 	
 }

@@ -50,17 +50,19 @@ public class EvenementController {
 	}
 	
 	
+	/*
+	
 	@GetMapping("/api/evenement/plaatsofnaam/{plaatsofnaam}")
-	public List<EvenementModel> ZoekNaarPlaatsOfNaam(@PathVariable String naamPlaats){
-		return this.naamPlaatsDatumService.vindOpPlaatsNaam(naamPlaats);
+	public List<EvenementModel> ZoekNaarPlaatsOfNaam(@PathVariable String plaatsofnaam){
+		return this.naamPlaatsDatumService.vindOpPlaatsNaam(plaatsofnaam);
 	}
 	
 	@GetMapping("/api/evenement/plaatsofnaamendatum/{plaatsofnaam}/{datum}")
-	public List<EvenementModel> ZoekNaarPlaatsNaamEnDatum(@PathVariable String naamPlaats){
-		return this.naamPlaatsDatumService.vindOpPlaatsNaam(naamPlaats);
+	public List<EvenementModel> ZoekNaarPlaatsNaamEnDatum(@PathVariable String plaatsofnaam, @PathVariable String datum){
+		return this.naamPlaatsDatumService.vindOpPlaatsNaam(plaatsofnaam);
 	}
 	
-	
+	*/
 	
 	
 	
