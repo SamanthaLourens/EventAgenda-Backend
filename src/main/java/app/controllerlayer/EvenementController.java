@@ -34,6 +34,11 @@ public class EvenementController {
 		return this.iEvenementService.findById(id);
 	}
 	
+	@GetMapping("/api/evenement/zoek/{zoek}")
+	public List<EvenementModel> ZoekEvenementen(@PathVariable String zoek) {
+		return this.iEvenementService.getAllEvenementen(zoek);
+	}
+	
 	@GetMapping("/api/evenement/naam/{naam}")
 	public List<EvenementModel> findByNaam(@PathVariable String naam){
 		return this.iEvenementService.findByNaam(naam);

@@ -25,6 +25,42 @@ public class EvenementService implements IEvenementService {
 	public Optional<EvenementModel> findById(Long id){
 		return this.iEvenementDao.findById(id);
 	}
+	
+	public List<EvenementModel> getAllEvenementen (String zoekopdracht) {
+		
+		//hieronder de code voor de searchbalk
+		List<EvenementModel> deEvenementen = iEvenementDao.findAll();		
+		List<EvenementModel> deEvenementenReturnheid = new ArrayList<EvenementModel>();
+		for (EvenementModel evenementNu : deEvenementen) {
+			System.out.println(evenementNu.getDatum().getMonth());
+			if (evenementNu.getNaam().toLowerCase().contains(zoekopdracht.toLowerCase())) {
+				deEvenementenReturnheid.add(evenementNu);
+				continue;
+				}
+				
+				else if (evenementNu.getPlaats().toLowerCase().contains(zoekopdracht.toLowerCase())) {
+				deEvenementenReturnheid.add(evenementNu);
+				continue;
+				
+				}
+				else if ((evenementNu.getDatum().getYear() + "").equals(zoekopdracht.toLowerCase())){
+				deEvenementenReturnheid.add(evenementNu);
+				continue;
+		}
+				else if ((evenementNu.getDatum().getDayOfMonth() + "").equals(zoekopdracht.toLowerCase())){
+				deEvenementenReturnheid.add(evenementNu);
+				continue;
+		}
+				else if ((evenementNu.getDatum().getMonth() + "").toLowerCase().equals(zoekopdracht.toLowerCase())){
+				deEvenementenReturnheid.add(evenementNu);
+				continue;
+		}
+		}
+		
+		
+		return deEvenementenReturnheid;
+	}
+	
 
 	@Override
 	public List<EvenementModel> findByPlaats(String plaats) {
